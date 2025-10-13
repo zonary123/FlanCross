@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "flancross",
+  "version": "${version}",
+  "name": "FlanCross",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/flancross/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.kingpixel.flancross.client.FlancrossDataGenerator"
+    ],
+    "main": [
+      "org.kingpixel.flancross.Flancross"
+    ]
+  },
+  "mixins": [
+    "flancross.mixins.json",
+    {
+      "config": "flancross.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
