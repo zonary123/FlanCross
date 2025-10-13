@@ -1,9 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.kingpixel.flancross.mixin",
+  "package": "org.kingpixel.flancross.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "FlanPlayerDataMixin"
   ],
   "injectors": {
     "defaultRequire": 1

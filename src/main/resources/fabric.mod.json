@@ -10,19 +10,12 @@
   "icon": "assets/flancross/icon.png",
   "environment": "server",
   "entrypoints": {
-    "fabric-datagen": [
-      "org.kingpixel.flancross.client.FlancrossDataGenerator"
-    ],
     "main": [
       "org.kingpixel.flancross.Flancross"
     ]
   },
   "mixins": [
-    "flancross.mixins.json",
-    {
-      "config": "flancross.client.mixins.json",
-      "environment": "client"
-    }
+    "flancross.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
