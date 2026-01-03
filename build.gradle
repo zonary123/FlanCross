@@ -80,6 +80,11 @@ tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         it.options.release.set(targetJavaVersion)
     }
+
+    options.compilerArgs += [
+            "-g:none",   // no debug info
+            "-O"         // lightweight bytecode optimization
+    ]
 }
 
 java {
