@@ -27,7 +27,7 @@ public class MongoDBClient extends DataBaseClient {
   public void connect() {
     MongoClient mongoClient = MongoClients.create(MongoClientSettings.builder()
       .applyConnectionString(new ConnectionString(Flancross.config.getMongoURL()))
-        .applicationName("FlanCross")
+      .applicationName("FlanCross")
       .build());
     MongoDatabase database = mongoClient.getDatabase("flancross");
     playerDataFlan = database.getCollection("playerDataFlan");
@@ -101,9 +101,11 @@ public class MongoDBClient extends DataBaseClient {
 
     playerData.fix();
 
-    accessor.flanCross$setClaimBlocks(playerData.getClaimBlocks());
-    accessor.flanCross$setAdditionalClaimBlocks(playerData.getAdditionalClaimBlocks());
-    accessor.flanCross$setUsedBlocks(playerData.getUsedBlocks());
+    Flancross.server.execute(() -> {
+      accessor.flanCross$setClaimBlocks(playerData.getClaimBlocks());
+      accessor.flanCross$setAdditionalClaimBlocks(playerData.getAdditionalClaimBlocks());
+      accessor.flanCross$setUsedBlocks(playerData.getUsedBlocks());
+    });
   }
 
   @Override
